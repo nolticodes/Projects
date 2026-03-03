@@ -30,7 +30,6 @@ header {
     padding-right: 120px;
     display: flex;
     align-items: center;
-
 }
 
 /*#endregion header*/
@@ -43,13 +42,13 @@ main {
     max-width: 100%;
     display: flex;
     justify-content: center;
-    padding-left: 120px;
-    padding-right: 120px;
 }
 
 .main_content {
     padding-top: 160px;
     padding-bottom: 160px;
+    padding-left: 120px;
+    padding-right: 120px;
     width: 100%;
     max-width: 1920px;
     height: 100dvh;
@@ -61,6 +60,7 @@ main {
 .main_content h1 {
     font-size: 56px;
     padding-bottom: 160px;
+    text-align: center;
 }
 
 .img_overview {
@@ -223,9 +223,60 @@ button.btn_arrow:hover {
     cursor: pointer;
 }
 
-
-
-
-
 /*#endregion dialog*/
 
+
+/* RESPONSIVE W/O DIALOG */
+/* TABLET VIEW */
+
+@media (max-width: 1280px) {
+    .header_content {
+        padding-left: 24px;
+        padding-right: 24px;
+        justify-content: center;
+    }
+
+    .header_content img {
+        scale: 0.8;
+    }
+
+    .main_content {
+        padding-top: 48px;
+        padding-bottom: 48px;
+        padding-left: 24px;
+        padding-right: 24px;
+        height: calc(100dvh - 240px);
+    }
+
+    .main_content h1 {
+        font-size: 40px;
+        padding-bottom: 48px;
+    }
+
+    .footer_content {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* MOBILE VIEW */
+@media (max-width: 767px) {
+    .img_overview {
+        width: 100%;
+        gap: 16px 16px;
+    }
+
+    .test_img img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+/* RESPONSIVE W/ DIALOG */
+
+@media (max-width: 767px) {
+
+
+    
+}
