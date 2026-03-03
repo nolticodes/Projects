@@ -127,25 +127,37 @@ footer {
 }
 
 .dialog_image_view_style {
-    height: 400px;
-    width: 600px;
+    height: 700px;
+    width: 700px;
     color: white;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 40px;
     box-sizing: border-box;
 }
 
 .header_dialog {
     height: 20%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px 10px;
 }
 
 .main_dialog {
-    height: 50%;
+    height: 55%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer_dialog {
     border-radius: 0/0;
-    height: 30%;
+    height: 25%;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

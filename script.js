@@ -1,8 +1,16 @@
+// ARRAY MIT BILDERN
+
+
+
+
+//DIALOG ÖFFNEN
 function openImageDialog(){
     let dialogImageRef = document.getElementById("image_view_dialog");
     dialogImageRef.showModal();
 }
 
+
+//DIALOG SCHLIEßEN
 function catchImageName(){
     let dialogImageNameRef = document.getElementById("dialog_image_name");
     let chosenImageRef = document.getElementById("image_id").alt
@@ -13,5 +21,9 @@ function catchImageName(){
 }
 
 catchImageName()
+
+
+//DIALOG BUTTONS
+
 
 
