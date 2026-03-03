@@ -195,8 +195,12 @@ dialog::backdrop {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
     background-color: black;
+}
+
+#image_counter {
+    text-align: center;
+    min-width: 100px;
 }
 
 .rotate_btn {

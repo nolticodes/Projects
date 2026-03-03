@@ -1,34 +1,5 @@
 
-
-
-
-// DIALOG ÖFFNEN
-
-function openImageDialog(index) {
-    const dialog = document.getElementById("image_view_dialog");
-    const dialogTitle = document.getElementById("dialog_image_name");
-    const main = dialog.querySelector(".main_dialog");
-
-    const fullPath = imgs[index];
-    const fileName = fullPath.split("/").pop(); // ← wichtig
-
-    dialogTitle.textContent = fileName;
-
-    main.innerHTML = `<img src="${fullPath}" alt="${fileName}">`;
-
-    dialog.showModal();
-}
-
-// DIALOG SCHLIEßEN
-function closeImageDialog() {
-    const dialog = document.getElementById("image_view_dialog");
-    dialog.close();
-
-}
-
-// FUNKTION ZUM RENDERN FÜR BILDER MINIATURANSICHT
-// ARRAY MIT BILDERN
-
+// BILDER ARRAY
 const imgs = [
   "./img/gallery/714707b1ea80f159dacba47280dc1091bbebb9c7.jpg",
   "./img/gallery/0872285883cee475f9533508e645f19ef0939ae8.png",
@@ -43,9 +14,41 @@ const imgs = [
   "./img/gallery/f1ba9135a20ea8343ad3d5732c6f8a541ec455b5.jpg",
   "./img/gallery/f2b056a08d5edba809ca216fa6aa66a4bb612ea8.jpg",
 ];
-
-               
+            
 const container = document.getElementById("image_overview_id");
+
+// DIALOG ÖFFNEN INKL DIALOG REFS
+function renderDialog() {
+  const dialog = document.getElementById("image_view_dialog");
+  const dialogTitle = document.getElementById("dialog_image_name");
+  const main = dialog.querySelector(".main_dialog");
+  const counter = document.getElementById("image_counter");
+
+  const fullPath = imgs[currentIndex];
+  const fileName = fullPath.split("/").pop();
+
+  dialogTitle.textContent = fileName;
+  main.innerHTML = `<img src="${fullPath}" alt="${fileName}">`;
+  counter.textContent = `${currentIndex + 1} / ${imgs.length}`;
+}
+
+
+function openImageDialog(index) {
+  currentIndex = index;   
+  renderDialog();         
+  document.getElementById("image_view_dialog").showModal();
+}
+
+// DIALOG SCHLIEßEN
+function closeImageDialog() {
+    const dialog = document.getElementById("image_view_dialog");
+    dialog.close();
+}
+
+// FUNKTION ZUM RENDERN FÜR BILDER MINIATURANSICHT
+// ARRAY MIT BILDERN
+
+
 
 function renderImages() {
   let getImgs = "";
@@ -62,27 +65,21 @@ renderImages();
 
 
 // FUNKTION ZUM REDNERN FÜR DIALOGINHALT 
+// DIALOG BUTTON VORWÄRTS
+const btnPrev = document.getElementById("btn_prev");
+const btnNext = document.getElementById("btn_next");
+let currentIndex = 0
 
-// function catchImageName(){
-//     let dialogImageNameRef = document.getElementById("dialog_image_name");
-//     let chosenImageRef = document.getElementById("image_${i + 1}").alt
-//     console.log(dialogImageNameRef);
+function nextImage() {
+  currentIndex = (currentIndex + 1) % imgs.length;
+  renderDialog();
+}
 
-//     dialogImageNameRef.innerHTML = chosenImageRef
-//     console.log(dialogImageNameRef);
-// }
-
-// catchImageName()
-
-
-// BILDNAME
-
-// NUMMER BILD 
+function prevImage() {
+  currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+  renderDialog();
+}
 
 
-
-// DIALOG BUTTONS
-// DIALOG SCHLIEßEN
-
-// BILDER VORWÄRTS/RÜCKWÄRTS
+// DIALOG BUTTON RÜCKWÄRTS
 
