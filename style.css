@@ -76,7 +76,7 @@ main {
     cursor: pointer;
     border-style: solid;
     border-width: 2px;
-    border-color: white;
+    border-color: #6BC1E1;
 }
 
 .test_img img {
@@ -133,27 +133,59 @@ footer {
     background-color: black;
     border-radius: 40px;
     box-sizing: border-box;
+    border: none;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .header_dialog {
     height: 20%;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 10px;
+    padding: 20px 24px;
+    background-color: black;
+}
+
+.dialog_image_view_style button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_dialog img {
+    border-radius: 50%;
+    transition: all 125ms;
+}
+
+.header_dialog img:hover {
+    border-radius: 50%;
+    background-color: rgb(19, 70, 87);
+    cursor: pointer;
+}
+
+.header_dialog img:active {
+    border-radius: 50%;
+    background-color: #0E3340;
+    cursor: pointer;
 }
 
 .main_dialog {
     height: 55%;
-    padding: 20px 10px;
+    padding: 40px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main_dialog img {
-    height: 100px;
-    width: 100px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .footer_dialog {
@@ -163,6 +195,28 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 24px;
+    background-color: black;
+}
+
+.rotate_btn {
+    transform: rotate(180deg);
+}
+
+button.btn_arrow {
+    height: 40px;
+    width: 40px;
+    background-color: rgb(30, 30, 34);    
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 250ms;
+}
+
+button.btn_arrow:hover {
+    background-color: rgb(56, 35, 40);
+    cursor: pointer;
 }
 
 

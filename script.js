@@ -8,19 +8,23 @@ function openImageDialog(index) {
     const dialog = document.getElementById("image_view_dialog");
     const dialogTitle = document.getElementById("dialog_image_name");
     const main = dialog.querySelector(".main_dialog");
-    
+
     const fullPath = imgs[index];
     const fileName = fullPath.split("/").pop(); // ← wichtig
-    
+
     dialogTitle.textContent = fileName;
-    
+
     main.innerHTML = `<img src="${fullPath}" alt="${fileName}">`;
-    
+
     dialog.showModal();
 }
 
 // DIALOG SCHLIEßEN
+function closeImageDialog() {
+    const dialog = document.getElementById("image_view_dialog");
+    dialog.close();
 
+}
 
 // FUNKTION ZUM RENDERN FÜR BILDER MINIATURANSICHT
 // ARRAY MIT BILDERN
