@@ -35,18 +35,36 @@
             <h1>Your personal photo album</h1>
 
             <section class="img_overview">
-                <img src="./img/gallery/Single pic component.png" alt="">
-                <img src="./img/gallery/Component 9.png" alt="">
-                <img src="./img/gallery/Component 8.png" alt="">
-                <img src="./img/gallery/Component 7.png" alt="">
-                <img src="./img/gallery/Component 6.png" alt="">
-                <img src="./img/gallery/Component 16.png" alt="">
-                <img src="./img/gallery/Component 15.png" alt="">
-                <img src="./img/gallery/Component 14.png" alt="">
-                <img src="./img/gallery/Component 13.png" alt="">
-                <img src="./img/gallery/Component 12.png" alt="">
-                <img src="./img/gallery/Component 11.png" alt="">
-                <img src="./img/gallery/Component 10.png" alt="">
+                
+                <img id="image_id" src="./img/gallery/714707b1ea80f159dacba47280dc1091bbebb9c7.jpg" alt="test" onclick="openImageDialog(); catchImageName()">
+                <img src="./img/gallery/0872285883cee475f9533508e645f19ef0939ae8.png" alt="" onclick="">
+                <img src="./img/gallery/3c416b08502bf2ed10a304bdce5c1c782b99c40d.jpg" alt="" onclick="">
+                <img src="./img/gallery/4ac67c63bfc2b6a80cca4919df91a1e498ec4c07.jpg" alt="" onclick="">
+                <img src="./img/gallery/872f2a95ab48c88b865e4f11d2e061a802987c88.jpg" alt="" onclick="">
+                <img src="./img/gallery/8bc8dae8f655d7cac8d770f66d76f62367f5b5df.jpg" alt="" onclick="">
+                <img src="./img/gallery/93265accae6c295655b8fd3cc1113f8c76b70797.jpg" alt="" onclick="">
+                <img src="./img/gallery/bbd3479cb0c36ecd872f4526275e11a893e50107.jpg" alt="" onclick="">
+                <img src="./img/gallery/cc1d7f8870c4b98e849a8e36c6c397e0f71486f9.jpg" alt="" onclick="">
+                <img src="./img/gallery/dc4b11f7f36deb9409236c10ebcd6c849b00f447.jpg" alt="" onclick="">
+                <img src="./img/gallery/f1ba9135a20ea8343ad3d5732c6f8a541ec455b5.jpg" alt="" onclick="">
+                <img src="./img/gallery/f2b056a08d5edba809ca216fa6aa66a4bb612ea8.jpg" alt="" onclick="">
+
+                
+                <dialog class="dialog_image_view_style" id="image_view_dialog">
+                    <header class="header_dialog">
+                        <h2 id="dialog_image_name">NAME Bild</h2>
+                    </header>
+
+                    <main class="main_dialog">
+                        <h3>IMAGE</h3>
+                    </main>
+
+                    <footer class="footer_dialog">
+                        <h3>forward, backward, number of images</h3>
+                    </footer>
+
+                </dialog>
+            
             </section>
 
         </section>
@@ -58,7 +76,7 @@
         <section class="footer_content">
             <img src="./img/icons/footer_icon.svg">
 
-        </section>>
+        </section>
 
     </footer>
 
