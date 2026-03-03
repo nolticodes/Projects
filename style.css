@@ -151,6 +151,11 @@ footer {
     align-items: center;
 }
 
+.main_dialog img {
+    height: 100px;
+    width: 100px;
+}
+
 .footer_dialog {
     border-radius: 0/0;
     height: 25%;

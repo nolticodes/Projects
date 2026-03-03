@@ -1,28 +1,30 @@
-// ARRAY MIT BILDERN
 
 
 
 
 // DIALOG ÖFFNEN
-function openImageDialog(){
-    let dialogImageRef = document.getElementById("image_view_dialog");
-    dialogImageRef.showModal();
+
+function openImageDialog(index) {
+    const dialog = document.getElementById("image_view_dialog");
+    const dialogTitle = document.getElementById("dialog_image_name");
+    const main = dialog.querySelector(".main_dialog");
+    
+    const fullPath = imgs[index];
+    const fileName = fullPath.split("/").pop(); // ← wichtig
+    
+    dialogTitle.textContent = fileName;
+    
+    main.innerHTML = `<img src="${fullPath}" alt="${fileName}">`;
+    
+    dialog.showModal();
 }
 
-
 // DIALOG SCHLIEßEN
-// function catchImageName(){
-//     let dialogImageNameRef = document.getElementById("dialog_image_name");
-//     let chosenImageRef = document.getElementById("image_id").alt
-//     console.log(dialogImageNameRef);
 
-//     dialogImageNameRef.innerHTML = chosenImageRef
-//     console.log(dialogImageNameRef);
-// }
-
-// catchImageName()
 
 // FUNKTION ZUM RENDERN FÜR BILDER MINIATURANSICHT
+// ARRAY MIT BILDERN
+
 const imgs = [
   "./img/gallery/714707b1ea80f159dacba47280dc1091bbebb9c7.jpg",
   "./img/gallery/0872285883cee475f9533508e645f19ef0939ae8.png",
@@ -44,7 +46,10 @@ const container = document.getElementById("image_overview_id");
 function renderImages() {
   let getImgs = "";
   for (let i = 0; i < imgs.length; i++) {
-    getImgs += `<img src="${imgs[i]}" alt="Gallery image ${i + 1}" onclick="openImageDialog()">`;
+    getImgs += `<img src="${imgs[i]}" 
+                alt="Gallery image ${i + 1}" 
+                onclick="openImageDialog(${i})"
+                >`;
   }
   container.innerHTML = getImgs;
 }
@@ -53,6 +58,19 @@ renderImages();
 
 
 // FUNKTION ZUM REDNERN FÜR DIALOGINHALT 
+
+// function catchImageName(){
+//     let dialogImageNameRef = document.getElementById("dialog_image_name");
+//     let chosenImageRef = document.getElementById("image_${i + 1}").alt
+//     console.log(dialogImageNameRef);
+
+//     dialogImageNameRef.innerHTML = chosenImageRef
+//     console.log(dialogImageNameRef);
+// }
+
+// catchImageName()
+
+
 // BILDNAME
 
 // NUMMER BILD 
