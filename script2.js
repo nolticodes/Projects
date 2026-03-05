@@ -55,40 +55,35 @@ function renderImageInDialog(i) {
 const titleImageInDialogRef = document.getElementById("dialog_image_name");
 
 function loadTitleToDialog(i) {
-    titleImageInDialogRef.innerHTML = imgArray[i];
+    titleImageInDialogRef.innerHTML = imgArray[i].replace("_", " ").replace("_", " ").slice(14, -4);
 }
 
-// COUNTER LADEN 
+// COUNTER IN DIALOG LADEN 
 const imageCounterRef = document.getElementById("image_counter"); 
 
 function imageCounterFctn(i){ 
     imageCounterRef.innerHTML = i+1 + " / " + imgArray.length;
 }
 
-// BUTTON BILD ZURÜCK
+// BUTTON ZURÜCK
 const prevButtonRef = document.getElementById("btn_prev")
 
-// COUNTER
 function prevImage(){
     currentIndex = (currentIndex - 1 + imgArray.length) % imgArray.length;
     imageCounterFctn(currentIndex);
+    imageCounterFctn(currentIndex);
+    renderImageInDialog(currentIndex);
+    loadTitleToDialog(currentIndex);
 }
 
-// BILD 
-
-// TITEL
-
-
-// BUTTON BILD WEITER
-//COUNTER
+// BUTTON WEITER
 function nextImage(){
     currentIndex = (currentIndex + 1) % imgArray.length;
     imageCounterFctn(currentIndex);
+    renderImageInDialog(currentIndex);
+    loadTitleToDialog(currentIndex);
 }
 
-// BILD 
-
-// TITEL
 
 
 
