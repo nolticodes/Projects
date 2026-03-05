@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotogram</title>
 
-    <script defer src="./script.js"></script>
+    <!-- <script defer src="./script.js"></script> -->
+    <script defer src="./script2.js"></script>
 
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="./style.css">
 
     <link rel="icon" type="image/x-icon" href="./img/icons/logo.svg">
 
@@ -18,7 +20,7 @@
 </head>
 
 
-<body>
+<body onload="renderImages()">
 
     <header>
         <section class="header_content">
@@ -46,7 +48,7 @@
                     <button onclick="closeImageDialog()"> <img src="./img/gallery/buttons/close_btn.svg"> </button>
                 </header>
 
-                <main class="main_dialog">
+                <main class="main_dialog" id="image_open_in_dialog">
                     
                 </main>
 
