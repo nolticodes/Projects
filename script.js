@@ -1,85 +1,84 @@
+// PARAMETER
+const imgArray = [
+    "./img/gallery/anime.jpg",
+    "./img/gallery/bird_white.jpg",
+    "./img/gallery/bird.jpg",
+    "./img/gallery/dark_clouds.png",
+    "./img/gallery/duck.jpg",
+    "./img/gallery/earth_from_sky.jpg",
+    "./img/gallery/leopards.jpg",
+    "./img/gallery/men_night_sea.jpg",
+    "./img/gallery/mountain_sea.jpg",
+    "./img/gallery/mountain_sky.jpg",
+    "./img/gallery/winter_mountains.jpg",
+    "./img/gallery/wintertree.jpg",
+]; 
 
-// BILDER ARRAY
-const imgs = [
-  "./img/gallery/714707b1ea80f159dacba47280dc1091bbebb9c7.jpg",
-  "./img/gallery/0872285883cee475f9533508e645f19ef0939ae8.png",
-  "./img/gallery/3c416b08502bf2ed10a304bdce5c1c782b99c40d.jpg",
-  "./img/gallery/4ac67c63bfc2b6a80cca4919df91a1e498ec4c07.jpg",
-  "./img/gallery/872f2a95ab48c88b865e4f11d2e061a802987c88.jpg",
-  "./img/gallery/8bc8dae8f655d7cac8d770f66d76f62367f5b5df.jpg",
-  "./img/gallery/93265accae6c295655b8fd3cc1113f8c76b70797.jpg",
-  "./img/gallery/bbd3479cb0c36ecd872f4526275e11a893e50107.jpg",
-  "./img/gallery/cc1d7f8870c4b98e849a8e36c6c397e0f71486f9.jpg",
-  "./img/gallery/dc4b11f7f36deb9409236c10ebcd6c849b00f447.jpg",
-  "./img/gallery/f1ba9135a20ea8343ad3d5732c6f8a541ec455b5.jpg",
-  "./img/gallery/f2b056a08d5edba809ca216fa6aa66a4bb612ea8.jpg",
-];
-            
-const container = document.getElementById("image_overview_id");
+const imgOverviewRef = document.getElementById("image_overview_id"); 
 
-// DIALOG ÖFFNEN INKL DIALOG REFS
-function renderDialog() {
-  const dialog = document.getElementById("image_view_dialog");
-  const dialogTitle = document.getElementById("dialog_image_name");
-  const main = dialog.querySelector(".main_dialog");
-  const counter = document.getElementById("image_counter");
+const dialogRef = document.getElementById("image_view_dialog");
 
-  const fullPath = imgs[currentIndex];
-  const fileName = fullPath.split("/").pop();
+let currentIndex = "";
 
-  dialogTitle.textContent = fileName;
-  main.innerHTML = `<img src="${fullPath}" alt="${fileName}">`;
-  counter.textContent = `${currentIndex + 1} / ${imgs.length}`;
-}
+const imageInDialogRef = document.getElementById("image_open_in_dialog"); 
 
+const titleImageInDialogRef = document.getElementById("dialog_image_name");
 
-function openImageDialog(index) {
-  currentIndex = index;   
-  renderDialog();         
-  document.getElementById("image_view_dialog").showModal();
-}
+const imageCounterRef = document.getElementById("image_counter"); 
 
-// DIALOG SCHLIEßEN
-function closeImageDialog() {
-    const dialog = document.getElementById("image_view_dialog");
-    dialog.close();
-}
+const prevButtonRef = document.getElementById("btn_prev");
 
-// FUNKTION ZUM RENDERN FÜR BILDER MINIATURANSICHT
-// ARRAY MIT BILDERN
-
-
-
+// RENDER IMG IN OVERVIEW
 function renderImages() {
-  let getImgs = "";
-  for (let i = 0; i < imgs.length; i++) {
-    getImgs += `<img src="${imgs[i]}" 
-                alt="Gallery image ${i + 1}" 
-                onclick="openImageDialog(${i})"
-                >`;
-  }
-  container.innerHTML = getImgs;
+    for(i=0; i<imgArray.length; i++) {
+        imgOverviewRef.innerHTML += `<img onclick="openImageDialog(${[i]})" 
+                                    id="image${[i]}" 
+                                    alt="${imgArray[i]}"
+                                    src="${imgArray[i]}"></img>`
+                                    
+    }
 }
 
-renderImages();
-
-
-// FUNKTION ZUM REDNERN FÜR DIALOGINHALT 
-// DIALOG BUTTON VORWÄRTS
-const btnPrev = document.getElementById("btn_prev");
-const btnNext = document.getElementById("btn_next");
-let currentIndex = 0
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % imgs.length;
-  renderDialog();
+// OPEN & CLOSE DIALOG
+function openImageDialog(i) {
+    dialogRef.showModal();
+    renderImageInDialog(i);
+    loadTitleToDialog(i);
+    imageCounterFctn(i);
+    currentIndex = i
 }
 
-function prevImage() {
-  currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-  renderDialog();
+function closeImageDialog() {
+    dialogRef.close();
 }
 
+// RENDER IMG IN DIALOG
+function renderImageInDialog(i) {
+    imageInDialogRef.innerHTML = `<img src="${imgArray[i]}"> </img>`;
+}
 
-// DIALOG BUTTON RÜCKWÄRTS
+// RENDER TITLE IN DIALOG
+function loadTitleToDialog(i) {
+    titleImageInDialogRef.innerHTML = imgArray[i].replace("_", " ").replace("_", " ").slice(14, -4);
+}
 
+// RENDER COUTNER IN DIALOG
+function imageCounterFctn(i){ 
+    imageCounterRef.innerHTML = i+1 + " / " + imgArray.length;
+}
+
+// BUTTON BACK
+function prevImage(){
+    currentIndex = (currentIndex - 1 + imgArray.length) % imgArray.length;
+    imageCounterFctn(currentIndex);
+    renderImageInDialog(currentIndex);
+    loadTitleToDialog(currentIndex);
+}
+
+// BUTTON NEXT
+function nextImage(){
+    currentIndex = (currentIndex + 1) % imgArray.length;
+    imageCounterFctn(currentIndex);
+    renderImageInDialog(currentIndex);
+    loadTitleToDialog(currentIndex);
+}
