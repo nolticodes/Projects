@@ -11,6 +11,15 @@ html {
     box-sizing: border-box;
 }
 
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 
 /*#region header*/
 
@@ -42,6 +51,7 @@ main {
     max-width: 100%;
     display: flex;
     justify-content: center;
+    flex: 1 0 auto;
 }
 
 .main_content {
@@ -50,8 +60,9 @@ main {
     padding-left: 120px;
     padding-right: 120px;
     width: 100%;
+    height: auto;
+    min-height: min-content;
     max-width: 1920px;
-    height: 100dvh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -122,6 +133,10 @@ footer {
 
 /*#region dialog*/
 
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 #image_view_dialog {
         margin: auto;
 }
@@ -134,6 +149,7 @@ footer {
     border-radius: 40px;
     box-sizing: border-box;
     border: none;
+    overflow: hidden;
 }
 
 dialog::backdrop {
@@ -279,7 +295,7 @@ button.btn_arrow:hover {
 @media (max-width: 767px) {
     .dialog_image_view_style {
         width: 80vw;
-        height: 40vh;
+        height: 80vh;
     }
 
     .dialog_image_view_style h2 {
